@@ -1,4 +1,5 @@
 import { IconButton } from "@chakra-ui/react";
+import { LuSun, LuMoon } from "react-icons/lu";
 import { useTheme } from "../ThemeContext";
 
 export function ThemeToggle(props) {
@@ -11,11 +12,10 @@ export function ThemeToggle(props) {
       variant="ghost"
       aria-label={isDark ? "Modo claro" : "Modo escuro"}
       onClick={toggleTheme}
-      fontSize="xl"
       _hover={{ bg: "bg.muted" }}
       {...props}
     >
-      {isDark ? "☀️" : "🌙"}
+      {isDark ? <LuSun size={20} /> : <LuMoon size={20} />}
     </IconButton>
   );
 }

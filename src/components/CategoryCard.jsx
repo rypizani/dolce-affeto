@@ -1,5 +1,6 @@
 import { Box, CardRoot, CardBody, Link, Text, Heading } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { CategoryIcon } from "./CategoryIcon";
 
 export function CategoryCard({ category }) {
   return (
@@ -11,18 +12,19 @@ export function CategoryCard({ category }) {
       h="full"
     >
       <CardRoot
+        className="card-panel"
         overflow="hidden"
         borderRadius="2xl"
         bg="bg.panel"
         borderWidth="1px"
         borderColor="border"
         h="full"
-        transition="all 0.35s ease"
+        transition="all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
         _hover={{
           shadow: "xl",
           borderColor: "pink.200",
           _dark: { borderColor: "pink.700" },
-          transform: "translateY(-6px)",
+          transform: "translateY(-8px)",
         }}
       >
         <Box
@@ -41,9 +43,7 @@ export function CategoryCard({ category }) {
           />
         </Box>
         <CardBody py="6" px="5">
-          <Text fontSize="2xl" mb="2" aria-hidden lineHeight="1">
-            {category.icon}
-          </Text>
+          <CategoryIcon categoryId={category.id} boxSize={8} mb="2" />
           <Heading size="md" fontFamily="heading" mb="2" letterSpacing="-0.02em">
             {category.name}
           </Heading>

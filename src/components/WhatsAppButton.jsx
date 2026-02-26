@@ -1,4 +1,5 @@
 import { Box, Link } from "@chakra-ui/react";
+import { LuMessageCircle } from "react-icons/lu";
 import { getWhatsAppLink } from "../data/products";
 
 export function WhatsAppButton({ message, children, ...props }) {
@@ -23,11 +24,11 @@ export function WhatsAppButton({ message, children, ...props }) {
       _hover={{
         bg: "green.600",
         textDecoration: "none",
-        transform: "translateY(-1px)",
-        boxShadow: "lg",
+        transform: "translateY(-2px)",
+        boxShadow: "0 8px 24px rgba(34, 197, 94, 0.35)",
       }}
       _active={{ transform: "scale(0.98)" }}
-      transition="all 0.2s"
+      transition="all 0.25s ease"
       {...props}
     >
       {children}
@@ -68,7 +69,7 @@ export function WhatsAppFloat() {
         transition="all 0.2s"
         aria-label="Abrir WhatsApp"
       >
-        <span aria-hidden>💬</span>
+        <LuMessageCircle size={28} color="white" />
       </Link>
     </Box>
   );

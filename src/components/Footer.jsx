@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "../data/products";
+import { LOGO_IMAGE_URL } from "../constants";
 
 export function Footer() {
   return (
@@ -28,15 +29,32 @@ export function Footer() {
             align={{ base: "center", md: "flex-start" }}
           >
             <VStack align={{ base: "center", md: "start" }} gap="2">
-              <Text
-                fontFamily="heading"
-                fontSize="xl"
-                fontWeight="bold"
-                color="fg"
-                letterSpacing="-0.02em"
-              >
-                Dolce Affeto Confeitaria
-              </Text>
+              <HStack gap="2">
+                <Box
+                  w="10"
+                  h="10"
+                  borderRadius="full"
+                  overflow="hidden"
+                >
+                  <Box
+                    as="img"
+                    src={LOGO_IMAGE_URL}
+                    alt=""
+                    w="full"
+                    h="full"
+                    objectFit="cover"
+                  />
+                </Box>
+                <Text
+                  fontFamily="heading"
+                  fontSize="xl"
+                  fontWeight="bold"
+                  color="fg"
+                  letterSpacing="-0.02em"
+                >
+                  Dolce Affeto Confeitaria
+                </Text>
+              </HStack>
               <Text fontSize="sm" color="fg.muted">
                 Doces com amor e carinho
               </Text>
@@ -127,6 +145,9 @@ export function Footer() {
             pt="2"
           >
             © {new Date().getFullYear()} Dolce Affeto Confeitaria. Todos os direitos reservados.
+          </Text>
+          <Text fontSize="xs" color="fg.muted" opacity={0.9}>
+            Feito com carinho para adoçar seu dia.
           </Text>
         </VStack>
       </Container>

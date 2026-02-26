@@ -55,6 +55,7 @@ export function Contato() {
               bg="bg.panel"
               borderWidth="1px"
               borderColor="border"
+              className="card-panel"
               w="full"
             >
               <Text fontSize="xs" color="fg.muted" mb="2" fontWeight="medium">
@@ -98,6 +99,7 @@ export function Contato() {
               bg="bg.panel"
               borderWidth="1px"
               borderColor="border"
+              className="card-panel"
               w="full"
             >
               <Text>Segunda a Sexta: 9h às 18h</Text>

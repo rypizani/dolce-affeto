@@ -16,8 +16,7 @@ export const categories = [
     name: "Bolos",
     slug: "bolos",
     description: "Bolos artesanais para festas e momentos especiais.",
-    image: "https://images.unsplash.com/photo-1565958011703-44f9825ba770?w=800&q=80",
-    icon: "🎂",
+    image: "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=1200&q=90",
   },
   {
     id: "tortas",
@@ -25,7 +24,6 @@ export const categories = [
     slug: "tortas",
     description: "Tortas doces e salgadas, perfeitas para qualquer ocasião.",
     image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80",
-    icon: "🥧",
   },
   {
     id: "doces-finos",
@@ -33,7 +31,6 @@ export const categories = [
     slug: "doces-finos",
     description: "Brigadeiros, trufas e doces gourmet.",
     image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800&q=80",
-    icon: "🍫",
   },
   {
     id: "cupcakes",
@@ -41,7 +38,6 @@ export const categories = [
     slug: "cupcakes",
     description: "Cupcakes decorados com muito carinho.",
     image: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=800&q=80",
-    icon: "🧁",
   },
   {
     id: "sobremesas",
@@ -49,7 +45,6 @@ export const categories = [
     slug: "sobremesas",
     description: "Mousses, pavês e sobremesas especiais.",
     image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&q=80",
-    icon: "🍮",
   },
   {
     id: "festas",
@@ -57,7 +52,6 @@ export const categories = [
     slug: "kits-festas",
     description: "Kits personalizados para sua festa.",
     image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
-    icon: "🎉",
   },
 ];
 
@@ -76,7 +70,7 @@ export const products = [
     categoryId: "bolos",
     name: "Red Velvet",
     description: "Clássico red velvet com cream cheese e raspas de chocolate.",
-    image: "https://images.unsplash.com/photo-1558304481-63ebc18a8af8?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558304481-63ebc18a8af8?w=600&q=90",
     price: "Sob consulta",
   },
   {
@@ -109,7 +103,7 @@ export const products = [
     categoryId: "tortas",
     name: "Torta de Morango",
     description: "Base de biscoito, creme e morangos frescos.",
-    image: "https://images.unsplash.com/photo-1606313564200-e75d695e0e1a?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=90",
     price: "Sob consulta",
   },
   // Doces finos
@@ -118,7 +112,7 @@ export const products = [
     categoryId: "doces-finos",
     name: "Brigadeiro Gourmet",
     description: "Brigadeiros artesanais em diversos sabores.",
-    image: "https://images.unsplash.com/photo-1606313564200-e75d695e0e1a?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=90",
     price: "Sob consulta",
   },
   {

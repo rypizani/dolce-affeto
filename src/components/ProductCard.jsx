@@ -6,33 +6,41 @@ import {
   Text,
   Heading,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { WhatsAppButton } from "./WhatsAppButton";
 
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1565958011703-44f9825ba770?w=600&q=80";
+
 export function ProductCard({ product }) {
+  const [imgError, setImgError] = useState(false);
   const message = `Olá! Gostaria de saber mais sobre: ${product.name}`;
+  const imgSrc = imgError ? FALLBACK_IMAGE : product.image;
 
   return (
     <CardRoot
+      className="card-panel"
       overflow="hidden"
       borderRadius="2xl"
       bg="bg.panel"
       borderWidth="1px"
       borderColor="border"
-      transition="all 0.35s ease"
+      transition="all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
       _hover={{
         shadow: "xl",
         borderColor: "pink.200",
         _dark: { borderColor: "pink.700" },
+        transform: "translateY(-4px)",
       }}
     >
-      <Box className="card-image-wrap" h="52" overflow="hidden">
+      <Box className="card-image-wrap" h="52" overflow="hidden" bg="bg.muted">
         <Box
           as="img"
-          src={product.image}
+          src={imgSrc}
           alt={product.name}
           w="full"
           h="full"
           objectFit="cover"
+          onError={() => setImgError(true)}
         />
       </Box>
       <CardBody py="5" px="5">

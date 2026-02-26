@@ -10,6 +10,7 @@ import {
 import { useParams, Link as RouterLink } from "react-router-dom";
 import { getCategoryBySlug, getProductsByCategoryId } from "../data/products";
 import { ProductCard } from "../components/ProductCard";
+import { CategoryIcon } from "../components/CategoryIcon";
 
 export function CategoriaDetail() {
   const { slug } = useParams();
@@ -41,9 +42,7 @@ export function CategoriaDetail() {
       <Box bg="bg.muted" py={{ base: 10, md: 14 }} position="relative">
         <Container maxW="7xl">
           <VStack gap="4" textAlign="center">
-            <Text fontSize="4xl" aria-hidden lineHeight="1">
-              {category.icon}
-            </Text>
+            <CategoryIcon categoryId={category.id} boxSize={12} />
             <Box
               w="10"
               h="0.5"

@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Box,
 } from "@chakra-ui/react";
+import { LuStar, LuCake, LuMessageCircle } from "react-icons/lu";
 
 export function Sobre() {
   return (
@@ -91,10 +92,13 @@ export function Sobre() {
               borderRadius="2xl"
               borderWidth="1px"
               borderColor="border"
+              className="card-panel"
               _hover={{ borderColor: "pink.200", _dark: { borderColor: "pink.700" } }}
               transition="border-color 0.2s"
             >
-              <Text fontSize="3xl">✨</Text>
+              <Box color="pink.500" _dark={{ color: "pink.400" }}>
+                <LuStar size={40} />
+              </Box>
               <Text fontWeight="semibold" fontSize="md">
                 Ingredientes de qualidade
               </Text>
@@ -109,10 +113,13 @@ export function Sobre() {
               borderRadius="2xl"
               borderWidth="1px"
               borderColor="border"
+              className="card-panel"
               _hover={{ borderColor: "pink.200", _dark: { borderColor: "pink.700" } }}
               transition="border-color 0.2s"
             >
-              <Text fontSize="3xl">🎂</Text>
+              <Box color="pink.500" _dark={{ color: "pink.400" }}>
+                <LuCake size={40} />
+              </Box>
               <Text fontWeight="semibold" fontSize="md">
                 Artesanal
               </Text>
@@ -127,10 +134,13 @@ export function Sobre() {
               borderRadius="2xl"
               borderWidth="1px"
               borderColor="border"
+              className="card-panel"
               _hover={{ borderColor: "pink.200", _dark: { borderColor: "pink.700" } }}
               transition="border-color 0.2s"
             >
-              <Text fontSize="3xl">💬</Text>
+              <Box color="pink.500" _dark={{ color: "pink.400" }}>
+                <LuMessageCircle size={40} />
+              </Box>
               <Text fontWeight="semibold" fontSize="md">
                 Atendimento pelo WhatsApp
               </Text>

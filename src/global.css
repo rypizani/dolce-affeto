@@ -8,6 +8,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fundo aquecido e semi-transparente para o conteúdo (animação aparece por baixo) */
+:root {
+  --layout-bg: rgb(254, 247, 244);
+  --layout-bg-solid: #fef7f4;
+}
+
+[data-theme="dark"] {
+  --layout-bg: rgb(23, 23, 23);
+  --layout-bg-solid: #171717;
+}
+
+.layout-content {
+  background-color: transparent;
+}
+
+/* Cores de fundo de volta — overlay creme quente (animação suave por baixo) */
+.layout-content-overlay {
+  background-color: rgba(254, 247, 244, 0.82);
+}
+
+[data-theme="dark"] .layout-content-overlay {
+  background-color: rgba(23, 23, 23, 0.85);
+}
+
 /* Padrão sutil para hero e seções */
 .bg-pattern-dots {
   background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
@@ -42,4 +66,217 @@ body {
   transform: scale(1.06);
 }
 
+/* Cards com profundidade e hover elegante */
+.card-panel {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-panel:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(236, 72, 153, 0.12);
+}
+
+[data-theme="dark"] .card-panel {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .card-panel:hover {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 12px 28px rgba(190, 24, 93, 0.15);
+}
+
+/* Títulos de seção — espaço e ritmo */
+.section-header .chakra-heading {
+  letter-spacing: -0.02em;
+}
+
+/* Foco visível para acessibilidade e polish */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid rgba(236, 72, 153, 0.7);
+  outline-offset: 2px;
+}
+
+/* Links do nav com transição suave */
+.layout-content header a {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Navbar e footer com fundo aquecido e leve transparência */
+.layout-content > header:first-of-type {
+  background-color: rgba(254, 250, 248, 0.92) !important;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.layout-content > footer:last-of-type {
+  background-color: rgba(253, 242, 238, 0.92) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .layout-content > header:first-of-type {
+  background-color: rgba(28, 26, 26, 0.92) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .layout-content > footer:last-of-type {
+  background-color: rgba(32, 28, 28, 0.92) !important;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.06);
+}
+
 /* Divisor curvo entre seções - usado via componente CurveDivider */
+
+/* Animação de fundo — cobre a tela toda com gradiente que se move */
+.animated-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* Gradiente animado em tela cheia */
+  background: linear-gradient(
+    135deg,
+    rgba(254, 247, 244, 0.98) 0%,
+    rgba(253, 242, 238, 0.95) 20%,
+    rgba(252, 231, 243, 0.9) 40%,
+    rgba(253, 242, 238, 0.95) 60%,
+    rgba(251, 207, 232, 0.85) 80%,
+    rgba(254, 247, 244, 0.98) 100%
+  );
+  background-size: 400% 400%;
+  animation: bg-gradient-flow 20s ease-in-out infinite;
+}
+
+[data-theme="dark"] .animated-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(23, 23, 23, 0.98) 0%,
+    rgba(30, 26, 28, 0.96) 20%,
+    rgba(48, 28, 40, 0.92) 40%,
+    rgba(30, 26, 28, 0.96) 60%,
+    rgba(35, 20, 30, 0.94) 80%,
+    rgba(23, 23, 23, 0.98) 100%
+  );
+  background-size: 400% 400%;
+  animation: bg-gradient-flow 22s ease-in-out infinite;
+}
+
+@keyframes bg-gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+}
+
+/* Blobs espalhados por TODA a tela (cantos + bordas + centro) — transição suave */
+.animated-bg .bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  filter: blur(100px);
+}
+
+/* Canto superior esquerdo */
+.animated-bg .bg-blob-1 {
+  width: 70vmax;
+  height: 70vmax;
+  top: -25%;
+  left: -25%;
+  opacity: 0.5;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, rgba(251, 207, 232, 0.2) 40%, transparent 70%);
+  animation: bg-blob-1 25s ease-in-out infinite;
+}
+
+/* Canto superior direito */
+.animated-bg .bg-blob-2 {
+  width: 65vmax;
+  height: 65vmax;
+  top: -20%;
+  right: -20%;
+  opacity: 0.45;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(244, 114, 182, 0.18) 45%, transparent 70%);
+  animation: bg-blob-2 28s ease-in-out infinite;
+}
+
+/* Canto inferior esquerdo */
+.animated-bg .bg-blob-3 {
+  width: 68vmax;
+  height: 68vmax;
+  bottom: -25%;
+  left: -22%;
+  opacity: 0.48;
+  background: radial-gradient(circle, rgba(251, 207, 232, 0.32) 0%, rgba(244, 114, 182, 0.15) 50%, transparent 72%);
+  animation: bg-blob-3 26s ease-in-out infinite;
+}
+
+/* Canto inferior direito */
+.animated-bg .bg-blob-4 {
+  width: 66vmax;
+  height: 66vmax;
+  bottom: -22%;
+  right: -24%;
+  opacity: 0.46;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.33) 0%, rgba(236, 72, 153, 0.17) 45%, transparent 70%);
+  animation: bg-blob-4 24s ease-in-out infinite;
+}
+
+/* Centro — une tudo */
+.animated-bg .bg-blob-5 {
+  width: 55vmax;
+  height: 55vmax;
+  top: 50%;
+  left: 50%;
+  opacity: 0.4;
+  background: radial-gradient(circle, rgba(252, 231, 243, 0.4) 0%, rgba(244, 114, 182, 0.15) 50%, transparent 75%);
+  animation: bg-blob-5 22s ease-in-out infinite;
+}
+
+@keyframes bg-blob-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10%, 15%) scale(1.12); }
+  66% { transform: translate(-8%, -10%) scale(0.94); }
+}
+
+@keyframes bg-blob-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-12%, 10%) scale(1.1); }
+  66% { transform: translate(8%, -12%) scale(0.96); }
+}
+
+@keyframes bg-blob-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(12%, -8%) scale(1.08); }
+  66% { transform: translate(-10%, 10%) scale(0.95); }
+}
+
+@keyframes bg-blob-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10%, -12%) scale(1.14); }
+  66% { transform: translate(9%, 8%) scale(0.92); }
+}
+
+@keyframes bg-blob-5 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-48%, -52%) scale(1.15); }
+}
+
+/* Modo escuro: blobs em tons rosa/vinho suaves */
+[data-theme="dark"] .animated-bg .bg-blob-1 {
+  background: radial-gradient(circle, rgba(190, 24, 93, 0.25) 0%, rgba(131, 24, 67, 0.12) 40%, transparent 70%) !important;
+}
+
+[data-theme="dark"] .animated-bg .bg-blob-2 {
+  background: radial-gradient(circle, rgba(157, 23, 77, 0.22) 0%, rgba(190, 24, 93, 0.1) 45%, transparent 70%) !important;
+}
+
+[data-theme="dark"] .animated-bg .bg-blob-3 {
+  background: radial-gradient(circle, rgba(131, 24, 67, 0.24) 0%, rgba(88, 28, 135, 0.08) 50%, transparent 72%) !important;
+}
+
+[data-theme="dark"] .animated-bg .bg-blob-4 {
+  background: radial-gradient(circle, rgba(190, 24, 93, 0.23) 0%, rgba(131, 24, 67, 0.1) 45%, transparent 70%) !important;
+}
+
+[data-theme="dark"] .animated-bg .bg-blob-5 {
+  background: radial-gradient(circle, rgba(88, 28, 135, 0.2) 0%, rgba(131, 24, 67, 0.08) 50%, transparent 75%) !important;
+}
