@@ -1,0 +1,45 @@
+/* Dolce Affeto - estilos globais para refinamento visual */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Padrão sutil para hero e seções */
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.08;
+}
+
+.bg-pattern-dots-dark {
+  opacity: 0.06;
+}
+
+/* Animação suave do botão WhatsApp flutuante */
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+}
+
+.whatsapp-float {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+/* Zoom suave em imagens dos cards */
+.card-image-wrap {
+  overflow: hidden;
+}
+
+.card-image-wrap img {
+  transition: transform 0.5s ease;
+}
+
+.card-image-wrap:hover img {
+  transform: scale(1.06);
+}
+
+/* Divisor curvo entre seções - usado via componente CurveDivider */
